@@ -1,0 +1,30 @@
+<div class="page container p-4">
+    <div class="card-block">
+        <h1 class="header">
+            My Wallet
+        </h1>
+        <div class="card-section p-4">
+            <div class="d-flex" *ngFor="let item of cardListData">
+                <ng-container *ngIf="item?.cardNumber">
+                    <div class="d-flex w-75 card-wrap p-2 mb-4">
+                        <div class="card-number">
+                            <label class="label-block m-0">Credit Card Number</label>
+                            <span class="number-block">{{cardMask(item?.cardNumber)}}</span>
+                        </div>
+                        <div class="flex-grow-1"></div>
+                        <div class="card-type">
+                            <span class="card-type"><img src="{{checkCardType(item?.cardNumber)}}"></span>
+                        </div>
+                    </div>
+                    <div class=" pt-2 pl-2">
+                        <button type="button" class="btn btn-outline-primary"
+                            (click)="confirmRemoveCard(item.id)">Remove</button>
+                    </div>
+                </ng-container>
+            </div>
+            <div class="btn-section">
+                <button type="button" class="btn btn-primary" (click)="openAddNewCardModal()">Add New Card</button>
+            </div>
+        </div>
+    </div>
+</div>

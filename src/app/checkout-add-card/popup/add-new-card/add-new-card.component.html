@@ -1,0 +1,85 @@
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="modal-header">
+        <h4 class="modal-title">
+            Add New Card
+        </h4>
+        <button type="button" class="close" aria-label="close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button> 
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="cardNumberLabel">Enter Debit/Credit Card Number</label>
+                    <input type="text" id="cardNumberLabel" formControlName="cardNumber" (keyup)="checkCardType(form.value.cardNumber)"
+                        placeholder="Enter Debit/Credit Card Number" class="form-control" minlength="12" maxlength="16">
+                        <span class="card-type"><img src="{{imgUrl}}"></span>
+                    <div
+                        *ngIf="form.controls.cardNumber.invalid && (form.controls.cardNumber.dirty || form.controls.cardNumber.touched)">
+                        <div *ngIf="form?.controls?.cardNumber?.errors?.required" class="invalid-feedback">
+                            Card number is required
+                        </div>
+                        <div *ngIf="form?.controls?.cardNumber?.errors?.minlength" class="invalid-feedback">
+                            Card number atleast 12 and at most 16 digit long is required
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="cardMonthLabel">Expiry Month</label>
+                    <select id="cardMonthLabel" formControlName="expMonth" placeholder="MM" class="form-control">
+                        <option selected value="">MM</option>
+                        <option *ngFor="let item of monthList" value="item">{{item}}</option>
+                    </select>
+                    <div
+                        *ngIf="form.controls.expMonth.invalid && (form.controls.expMonth.dirty || form.controls.expMonth.touched)">
+                        <div *ngIf="form?.controls?.expMonth?.errors?.required" class="invalid-feedback">
+                            Exp month is required
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="cardYearLabel">Expiry Year</label>
+                    <select id="cardYearLabel" formControlName="expYear" placeholder="YY" class="form-control">
+                        <option selected value="">YY</option>
+                        <option *ngFor="let item of yearList" value="item">{{item}}</option>
+                    </select>
+                    <div
+                        *ngIf="form.controls.expYear.invalid && (form.controls.expYear.dirty || form.controls.expYear.touched)">
+                        <div *ngIf="form?.controls?.expYear?.errors?.required" class="invalid-feedback">
+                            Exp year is required
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="cvvLabel">CVV</label>
+                    <i class="glyphicon glyphicon-user"></i>
+                    <input type="password" id="cvvLabel" formControlName="cvv" placeholder="CVV" class="cvv-section form-control"
+                        minlength="3" maxlength="4">
+                    <span class="card-type"><img src="../../../../assets/images/icons8-cvv-64.png"></span>
+                    <div *ngIf="form.controls.cvv.invalid && (form.controls.cvv.dirty || form.controls.cvv.touched)">
+                        <div *ngIf="form?.controls?.cvv?.errors?.required" class="invalid-feedback">
+                            CVV is required
+                        </div>
+                        <div *ngIf="form?.controls?.cvv?.errors?.minlength" class="invalid-feedback">
+                            CVV number atleast 3 and at most 4 digit long
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary pr-2" (click)="modal.dismiss('Dismissed')">Cancel</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Add Card</button>
+    </div>
+</form>

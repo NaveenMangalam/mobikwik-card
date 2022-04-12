@@ -1,0 +1,33 @@
+.form-group {
+    label {
+        font-size: 0.75rem;
+        color: grey;
+    }
+
+    .card-type {
+        position: absolute;
+        top: 2.4rem;
+        right: 1.4rem;
+
+        img {
+            max-width: 1.8rem;
+        }
+    }
+
+    .invalid-feedback {
+        display: block;
+    }
+
+}
+
+.modal-footer {
+    justify-content: start;
+    button {
+        &:disabled {
+            background-color: grey;
+            color: #ffffff;
+            border: grey;
+        }
+    }
+}
+

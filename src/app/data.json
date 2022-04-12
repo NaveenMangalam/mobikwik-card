@@ -1,0 +1,47 @@
+{
+  "cards": [
+    {
+      "cardNumber": "32345678901234",
+      "expMonth": "item",
+      "expYear": "item",
+      "cvv": "333",
+      "id": 1
+    },
+    {
+      "cardNumber": null,
+      "expMonth": null,
+      "expYear": null,
+      "cvv": null,
+      "id": 2
+    },
+    {
+      "cardNumber": "2222222222222222",
+      "expMonth": "item",
+      "expYear": "item",
+      "cvv": "444",
+      "id": 3
+    }
+  ],
+  "cardType": [
+    {
+      "startSeries": "2",
+      "imgUrl": "https://img.icons8.com/color/40/000000/mastercard.png"
+    },
+    {
+      "startSeries": "3",
+      "imgUrl": "https://img.icons8.com/color/40/000000/amex.png"
+    },
+    {
+      "startSeries": "4",
+      "imgUrl": "https://img.icons8.com/color/40/000000/visa.png"
+    },
+    {
+      "startSeries": "5",
+      "imgUrl": "https://img.icons8.com/color/40/000000/mastercard.png"
+    },
+    {
+      "startSeries": "6",
+      "imgUrl": "https://img.icons8.com/color/40/000000/maestro.png"
+    }
+  ]
+}
